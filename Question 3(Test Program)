@@ -1,0 +1,81 @@
+
+package hw.pkg11;
+import java.util.*;
+
+public class Hw11 {
+
+    
+    public static void main(String[] args) {
+      
+        boolean notDone;
+        
+        
+        Auto truck = new Auto(3, "Truck");
+        Auto van = new Auto(4, "Van");
+        Auto sportsCar = new Auto(6, 2002, "Ford", "Mustang", "Red", "Sports Car");
+        
+        
+        do
+        {
+            Scanner input = new Scanner(System.in);
+            System.out.print("How many dice to roll?: ");
+            int num = input.nextInt();
+            int value;
+            
+
+            Dice dice = new Dice();
+
+            System.out.printf("\nGuess what the value will be(%d - %d): ", num, num * 6);
+            int guess = input.nextInt();
+
+            if( num == 1 )
+            {
+                value = dice.Throw();
+            }
+            else if( num > 1 )
+            {
+                value = dice.Throw(num, 5);
+            }
+            else
+            {
+                System.out.print("ERROR: Invalid number of dice! Number of dice set to 1.\n");
+                value = dice.Throw();
+            }
+            
+
+            System.out.printf("\nDice Value: %d\n", value);
+
+            if( guess == value )
+            {
+                System.out.print("CORRECT!\n");
+            }
+            else
+            {
+                System.out.print("TRY AGAIN!\n");
+            }
+            
+          
+           
+            
+            
+            
+            System.out.print("Play again?(Y/N): ");
+            char choice = input.next().charAt(0);
+            
+            if( choice == 'Y' || choice == 'y' )
+            {
+                notDone = true;
+            }
+            else
+            {
+                notDone = false;
+            }
+            
+        }while(notDone);
+        
+        
+        
+        
+    }
+    
+}
