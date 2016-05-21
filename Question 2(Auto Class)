@@ -1,0 +1,67 @@
+
+package hw.pkg11;
+import java.util.*;
+
+public class Auto
+ {  
+     
+     private int numberOfGears;
+     private int year;
+     private String make;
+     private String model;
+     private String color;
+     private String name;
+     private int currentGear;
+     private double distance;
+     
+     
+     public Auto(int Gears)
+     {
+          numberOfGears = Gears;
+          currentGear = 1;
+          distance = 0.0;
+     }
+     public Auto(int Gears, int Year, String Make, String Model, String Color, String Name)
+     {
+          numberOfGears = Gears;
+          year = Year;
+          make = Make;
+          model = Model;
+          color = Color;
+          name = Name;
+          currentGear = 1;
+          distance = 0.0;
+     }
+     public int SetGear(int Gear)   
+     {
+          if( Gear < 1 )
+          {
+               System.out.println("ERROR: Cannot shift to a gear lower than 1st ");
+               return -1; // error code
+          }
+          else if( Gear > numberOfGears )
+          {
+               System.out.println("ERROR: That gear does not exist! ");
+               return -1; //error code
+          }
+          else
+          {
+               currentGear = Gear;
+               distance += ((double)CurrentSpeed() / (double)60);
+               return Gear;
+          }
+     }
+     public int CurrentGear()
+     {
+          return currentGear;
+     }
+     public int CurrentSpeed()
+     {
+          int speed = currentGear * 10;
+          return speed;
+     }
+     public double DistanceTraveled()
+     {
+           return distance;
+     }
+}
