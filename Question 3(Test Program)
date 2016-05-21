@@ -41,7 +41,6 @@ public class Hw11 {
                 System.out.print("ERROR: Invalid number of dice! Number of dice set to 1.\n");
                 value = dice.Throw();
             }
-            
 
             System.out.printf("\nDice Value: %d\n", value);
 
