@@ -1,0 +1,147 @@
+
+package hw.pkg11;
+import java.util.*;
+
+public class Hw11 {
+
+    
+    public static void main(String[] args) {
+        
+        int[] values = new int[100];
+        int[] guesses = new int[100];
+        int rolls = 0;
+        boolean notDone;
+        
+        Scanner input = new Scanner(System.in);
+        
+        
+        
+        do
+        {
+            System.out.print("How many dice to roll?: ");
+            int num = input.nextInt();
+            int value;
+            
+
+            Dice dice = new Dice();
+
+            System.out.printf("\nGuess what the value will be(%d - %d): ", num, num * 6);
+            int guess = input.nextInt();
+
+            if( num == 1 )
+            {
+                value = dice.Throw();
+            }
+            else if( num > 1 )
+            {
+                value = dice.Throw(num, 5);
+            }
+            else
+            {
+                System.out.print("ERROR: Invalid number of dice! Number of dice set to 1.\n");
+                value = dice.Throw();
+            }
+            
+
+            System.out.printf("\nDice Value: %d\n", value);
+
+            if( guess == value )
+            {
+                System.out.print("CORRECT!\n");
+            }
+            else
+            {
+                System.out.print("TRY AGAIN!\n");
+            }
+            
+            values[rolls] = value;
+            guesses[rolls] = guess;
+            
+            
+            rolls++;
+           
+            System.out.printf("\nHISTORY | Throws: %d\n", rolls);
+            System.out.print("\nGuesses: ");
+            
+            for(int i = 0; i < rolls; i++)
+            {
+                System.out.printf("\t%d", guesses[i]);
+            }
+            System.out.print("\n");
+            System.out.print("Values: ");
+            for(int i = 0; i < rolls; i++)
+            {
+                System.out.printf("\t%d", values[i]);
+            }
+            System.out.print("\n");
+            
+            
+            
+            System.out.print("Play again?(Y/N): ");
+            char choice = input.next().charAt(0);
+            
+            if( choice == 'Y' || choice == 'y' )
+            {
+                notDone = true;
+            }
+            else
+            {
+                notDone = false;
+            }
+            
+        }while(notDone);
+        
+        
+       
+        Auto truck = new Auto(3, "Truck");
+        Auto van = new Auto(4, "Van");
+        Auto sportsCar = new Auto(6, 2002, "Ford", "Mustang", "Red", "Sports Car");
+        
+        
+        do
+        {
+            // Auto work
+            
+            
+            int gear;
+            System.out.print("Set Gear for Truck: ");
+            gear = input.nextInt();
+            truck.SetGear(gear);
+            
+            System.out.print("Set Gear for Van: ");
+            gear = input.nextInt();
+            van.SetGear(gear);
+            
+            System.out.print("Set Gear for Sports Car: ");
+            gear = input.nextInt();
+            sportsCar.SetGear(gear);
+            
+            System.out.print("\nVehicle Status\n\n");
+            System.out.printf("%s | Gear: %d | Speed: %d | Distance Traveled: %f\n", truck.GetName(), truck.CurrentGear(), truck.CurrentSpeed(), truck.DistanceTraveled());
+            System.out.printf("%s | Gear: %d | Speed: %d | Distance Traveled: %f\n", van.GetName(), van.CurrentGear(), van.CurrentSpeed(), van.DistanceTraveled());
+            System.out.printf("%s | Gear: %d | Speed: %d | Distance Traveled: %f\n", sportsCar.GetName(), sportsCar.CurrentGear(), sportsCar.CurrentSpeed(), sportsCar.DistanceTraveled());
+            
+            /////////////////////////////////////////////
+            
+            System.out.print("Run another operating cycle?(Y/N): ");
+            char choice = input.next().charAt(0);
+            
+            if( choice == 'Y' || choice == 'y' )
+            {
+                notDone = true;
+            }
+            else
+            {
+                notDone = false;
+            }
+            
+        }while(notDone);
+        
+        
+        
+        
+    }
+    
+    
+    
+}
