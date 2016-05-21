@@ -14,9 +14,11 @@ public class Auto
      private int currentGear;
      private double distance;
      
-     public Auto(int Gears)
+     
+     public Auto(int Gears, String Name)
      {
           numberOfGears = Gears;
+          name = Name;
           currentGear = 1;
           distance = 0.0;
      }
@@ -52,15 +54,21 @@ public class Auto
      }
      public int CurrentGear()
      {
-          return currentGear;
+         return currentGear;
+         
      }
      public int CurrentSpeed()
      {
-          int speed = currentGear * 10;
-          return speed;
+         int speed = currentGear * 10;
+         return speed;
      }
      public double DistanceTraveled()
      {
-           return distance;
+         return distance;
+     }
+     
+     public String GetName()
+     {
+         return name;
      }
 }
